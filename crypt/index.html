@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#7231de">
+    <meta http-equiv="Content-Security-Policy" content="
+  default-src 'self'; 
+  script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; 
+  style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; 
+  font-src 'self' https://fonts.gstatic.com;
+">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg
+					xmlns='http://www.w3.org/2000/svg' height='40px' viewBox='0 -960 960 960' width='40px' fill='%235d51f6'%3E%3Cpath d='M446.67-163.67V-461l-260-150.33V-314l260 150.33Zm66.66 0 260-150.33v-298l-260 150.89v297.44ZM480-518l256.33-149L480-815.33 223-667l257 149ZM153.33-256q-15.83-9.28-24.58-24.48-8.75-15.19-8.75-33.19v-332.66q0-18 8.75-33.19 8.75-15.2 24.58-24.48l293.34-169q15.88-9 33.44-9 17.56 0 33.22 9l293.34 169q15.83 9.28 24.58 24.48 8.75 15.19 8.75 33.19v332.66q0 18-8.75 33.19-8.75 15.2-24.58 24.48L513.33-87q-15.88 9-33.44 9-17.56 0-33.22-9L153.33-256ZM480-480Z'/%3E%3C/svg%3E">
+    <title>[ AES GCM ] Opalstar Cipher: Scroll Weaver of Mictlan</title>
+    <script src="/UID-LIST/TailwindCSSBundle.js"></script>
+    <link rel="stylesheet" href="/crypt/upgraded.css">
+  </head>
+  <body class="light hidden">
+    <div class="stardust" id="stardustDark" aria-hidden="true"></div>
+    <div class="w-full max-w-md glow-ring">
+      <div class="citlali-card rounded-2xl p-6 space-y-6">
+        <div class="text-center space-y-1 mt-4">
+          <h1 class="text-3xl font-bold tracking-wide shimmer-text"> Opalstar Cipher </h1>
+          <p class="text-sm text-main-subtitle tracking-wider font-light">
+            <span class="text-cyan-400/90">✦</span> Scroll Weaver of Mictlan <span class="text-cyan-400/90">✦</span>
+          </p>
+          <!--p class="text-[0.6rem] uppercase tracking-[0.2em] text-slate-200 mt-0.5 text-slate-500/60">
+                    client-side · star-forged
+                </p-->
+        </div>
+        <div class="flex rounded-xl tab-container p-1">
+          <button id="tabEncrypt" onclick="setMode('encrypt')" class="tab-btn active flex-1 py-2.5 text-sm font-semibold rounded-lg transition"> Itztli: Encrypt </button>
+          <button id="tabDecrypt" onclick="setMode('decrypt')" class="tab-btn flex-1 py-2.5 text-sm font-semibold rounded-lg transition"> Itztli: Decrypt </button>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <label class="label-glow text-xs uppercase tracking-wider mb-1.5 block"> Obsidian Key </label>
+            <div class="relative"><input type="password" id="keyInput" placeholder="16 --> 32 bytes · recommended" class="citlali-input w-full rounded-xl px-4 py-2.5 pr-12 text-sm placeholder:italic" />
+              <button type="button" onclick="togglePasswordVisibility()" class="toggle-password-btn absolute right-3 top-1/2 -translate-y-1/2 focus:outline-none flex items-center justify-center w-6 h-6">
+                <svg id="eyeOffIcon" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="currentColor">
+                  <path d="m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8 34.5-12t37.5-4q75 0 127.5 52.5T660-500q0 20-4 37.5T644-428Zm128 126-58-56q38-29 67.5-63.5T832-500q-50-101-143.5-160.5T480-720q-29 0-57 4t-55 12l-62-62q41-17 84-25.5t90-8.5q151 0 269 83.5T920-500q-23 59-60.5 109.5T772-302Zm20 246L624-222q-35 11-70.5 16.5T480-200q-151 0-269-83.5T40-500q21-53 53-98.5t73-81.5L56-792l56-56 736 736-56 56ZM222-624q-29 26-53 57t-41 67q50 101 143.5 160.5T480-280q20 0 39-2.5t39-5.5l-36-38q-11 3-21 4.5t-21 1.5q-75 0-127.5-52.5T300-500q0-11 1.5-21t4.5-21l-84-82Zm319 93Zm-151 75Z" />
+                </svg>
+                <svg id="eyeOnIcon" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="currentColor" class="hidden">
+                  <path d="M607.5-372.5Q660-425 660-500t-52.5-127.5Q555-680 480-680t-127.5 52.5Q300-575 300-500t52.5 127.5Q405-320 480-320t127.5-52.5Zm-204-51Q372-455 372-500t31.5-76.5Q435-608 480-608t76.5 31.5Q588-545 588-500t-31.5 76.5Q525-392 480-392t-76.5-31.5ZM214-281.5Q94-363 40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200q-146 0-266-81.5ZM480-500Zm207.5 160.5Q782-399 832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280q113 0 207.5-59.5Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div>
+            <label id="fileLabel" class="label-glow text-xs uppercase tracking-wider mb-1.5 block"> Dreams to Preserve </label>
+            <div class="citlali-input w-full rounded-xl px-2 py-2 text-sm flex items-center gap-3 file-wrapper">
+              <label for="fileInput" tabindex="0" class="file-select-btn px-4 py-1.5 rounded-lg text-xs cursor-pointer shrink-0 transition-colors"> Select spirits </label>
+              <span id="fileChosenText" class="file-chosen-text truncate">No spirits selected</span>
+            </div>
+            <input type="file" id="fileInput" multiple class="hidden" />
+          </div>
+          <button onclick="processFiles()" id="actionBtn" class="btn-primary w-full text-base tracking-wide"> Citlalin, Itzpapa, get 'em! </button>
+        </div>
+        <div id="statusBox" class="hidden !border-none rounded-xl px-4 py-3 text-sm text-center"></div>
+        <div class="text-center footer-text text-[0.60rem] uppercase tracking-[0.15em] pt-1 select-none">
+          <span class="text-[0.60rem] footer-text-diamond">◇</span> starlight reflection <span class="text-[0.60rem] footer-text-diamond">◇</span>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.addEventListener('load', () => {
+        document.body.classList.remove('hidden')
+        if (!window.location.hash) {
+          history.replaceState(null, null, '#');
+        }
+      });
+    </script>
+    <script src="/crypt/ui_logic.js"></script>
+    <script src="/crypt/encryption_logic.js"></script>
+  </body>
+  </html>
