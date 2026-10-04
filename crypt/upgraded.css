@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+:root {
+  /* Background */
+  --bg-body: radial-gradient(ellipse at 50% 0%, #f3eeff 0%, #e6dcf5 60%, #d4c8ea 100%);
+
+  /* Card */
+  --card-bg: rgba(255, 248, 255, 0.75);
+  --card-border: 1px solid rgba(167, 139, 250, 0.25);
+  --card-shadow: 0 20px 50px -12px rgba(124, 58, 237, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --card-shadow-hover: 0 28px 60px -16px rgba(124, 58, 237, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  --card-backdrop-blur: blur(8px);
+  --card-border-radius: 1.25rem;
+
+  /* Shimmer text */
+  --shimmer-gradient: linear-gradient(135deg, #7c3aed, #00b4d8, #7c3aed);
+
+  /* Main subtitle text */
+  --text-main-subtitle-color: #6B21A8; /*c084fc*/
+
+  /* Tabs */
+  --tab-color: #4b3a6b;
+  --tab-active-bg: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  --tab-active-shadow: 0 4px 16px -4px rgba(124, 58, 237, 0.3);
+  --tab-hover-bg: rgba(124, 58, 237, 0.06);
+  --tab-hover-color: #3b2a5a;
+
+  /* Inputs */
+  --input-bg: rgba(255, 255, 255, 0.6);
+  --input-border: 1px solid rgba(124, 58, 237, 0.15);
+  --input-color: #1e1b2e;
+  --input-focus-border: #8b5cf6;
+  --input-focus-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+  --input-placeholder: rgba(30, 27, 46, 0.7);
+
+  /* File button */
+  --file-btn-bg: rgba(139, 92, 246, 0.08);
+  --file-btn-border: 1px solid rgba(124, 58, 237, 0.2);
+  --file-btn-color: #5b3d8a;
+  --file-btn-hover-bg: rgba(139, 92, 246, 0.16);
+  --file-btn-hover-border: 1px solid rgba(124, 58, 237, 0.4);
+
+  /* Primary button */
+  --primary-btn-bg: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  --primary-btn-shadow: 0 4px 20px -6px rgba(124, 58, 237, 0.25);
+  --primary-btn-shadow-hover: 0 8px 28px -8px rgba(124, 58, 237, 0.4);
+  --primary-btn-shadow-active: 0 4px 16px -4px rgba(124, 58, 237, 0.2);
+  
+  /* Password toggle button */
+  --toggle-color: #6b7280;
+  --toggle-hover-color: #7c3aed;
+  
+  /* Status */
+  --status-success-bg: rgba(139, 92, 246, 0.08);
+  --status-success-color: #6d28d9;
+  --status-success-border: none;
+  --status-error-bg: rgba(239, 68, 68, 0.06);
+  /* --status-error-border: 1px solid rgba(239, 68, 68, 0.15); */
+  --status-error-color: #a13131;
+
+  /* Labels */
+  --label-color: #5b3d8a;
+  --label-glow-before-color: #00b4d8;
+  --label-glow-before-opacity: 0.8;
+
+  /* Stardust */
+  --stardust-color: rgba(124, 58, 237, 0.15);
+
+  /* Glow ring (hidden in light mode) */
+  --glow-ring-opacity: 0;
+  --glow-ring-opacity-hover: 0;
+  --glow-ring-gradient: conic-gradient(from 0deg, #a78bfa, #00d4ff, #a78bfa, #fbbf24, #a78bfa);
+
+  /* Tab container */
+  --tab-container-bg: rgba(255, 255, 255, 0.5);
+  --tab-container-border: 1px solid rgba(124, 58, 237, 0.15);
+  /* File select button */
+  --file-select-bg: rgba(139, 92, 246, 0.08);
+  --file-select-border: 1px solid rgba(124, 58, 237, 0.2);
+  --file-select-color: #5b3d8a;
+  --file-select-bg-hover: rgba(139, 92, 246, 0.16);
+  --file-select-border-hover: 1px solid rgba(124, 58, 237, 0.4);
+  /* File chosen text */
+  --file-chosen-color: #1e1b2e;
+  
+  --footer-text-color: #6B21A8;
+  --footer-text-diamond: #6B21A8;
+}
+
+.dark {
+    --tab-container-bg: rgba(12, 5, 30, 0.5);
+    --tab-container-border: 1px solid rgba(45, 27, 78, 0.3);
+    --file-select-bg: rgba(15, 23, 42, 0.5);
+    --file-select-border: 1px solid rgba(51, 65, 85, 0.6);
+    --file-select-color: #67e8f9; /*#c4b5fd*/
+    --file-select-bg-hover: rgba(30, 41, 59, 0.6);
+    --file-select-border-hover: 1px solid rgba(71, 85, 105, 0.6);
+    --file-chosen-color: #e2e8f0;
+}
+
+.tab-container {
+    background: var(--tab-container-bg);
+    border: var(--tab-container-border);
+    backdrop-filter: blur(4px);
+    transition: background 0.3s, border 0.3s;
+}
+
+.file-wrapper {
+    /* Inherits citlali-input background and border from variables */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.file-wrapper:hover {
+    border-color: var(--input-focus-border);
+}
+
+.file-select-btn {
+    background: var(--file-select-bg);
+    border: var(--file-select-border);
+    color: var(--file-select-color);
+}
+.file-select-btn:hover {
+    background: var(--file-select-bg-hover);
+    border: var(--file-select-border-hover);
+}
+
+.file-chosen-text {
+    color: var(--file-chosen-color);
+}
+
+/* ====================
+   Dark theme override
+   ==================== */
+.dark {
+  --bg-body: radial-gradient(ellipse at 50% 0%, #1f103f 0%, #0c0520 80%);
+
+  --card-bg: rgba(12, 5, 30, 0.7);
+  --card-border: 1px solid rgba(167, 139, 250, 0.15);
+  --card-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --card-shadow-hover: 0 30px 70px -15px rgba(0, 212, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --card-backdrop-blur: blur(12px);
+
+  --shimmer-gradient: linear-gradient(135deg, #c4b5fd, #00d4ff, #c4b5fd);
+
+  /* Main subtitle text */
+  --text-main-subtitle-color: #94a3b8;
+
+  --tab-color: #9ca3af;
+  --tab-active-bg: linear-gradient(135deg, #7c3aed, #4f46e5);
+  --tab-active-shadow: 0 4px 20px -6px rgba(124, 58, 237, 0.4);
+  --tab-hover-bg: rgba(167, 139, 250, 0.06);
+  --tab-hover-color: #e0e7ff;
+
+  --input-bg: rgba(255, 255, 255, 0.04);
+  --input-border: 1px solid rgba(167, 139, 250, 0.12);
+  --input-color: #e2e8f0;
+  --input-focus-border: #00d4ff;
+  --input-focus-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+  --input-placeholder: rgba(209, 213, 219, 0.7);
+
+  --file-btn-bg: rgba(124, 58, 237, 0.15);
+  --file-btn-border: 1px solid rgba(167, 139, 250, 0.15);
+  --file-btn-color: #c4b5fd;
+  --file-btn-hover-bg: rgba(124, 58, 237, 0.25);
+  --file-btn-hover-border: 1px solid rgba(167, 139, 250, 0.3);
+
+  --primary-btn-bg: linear-gradient(135deg, #7c3aed, #4f46e5);
+  --primary-btn-shadow: 0 4px 24px -6px rgba(124, 58, 237, 0.3);
+  --primary-btn-shadow-hover: 0 8px 32px -8px rgba(124, 58, 237, 0.5), 0 0 40px -12px rgba(0, 212, 255, 0.05);
+  --primary-btn-shadow-active: 0 4px 16px -4px rgba(124, 58, 237, 0.2);
+
+  --toggle-color: #94a3b8; /* Default light gray */
+  --toggle-hover-color: #00d4ff; /* Cyan on hover */
+
+  --status-success-bg: rgba(16, 185, 129, 0.06);
+  --status-success-color: #6ee7b7;
+  --status-success-border: none;
+  --status-error-bg: rgba(239, 68, 68, 0.06);
+  /* --status-error-border: 1px solid rgba(239, 68, 68, 0.15); */
+  --status-error-color: #fca5a5;
+
+  --label-color: #a78bfa;
+  --label-glow-before-color: #00d4ff;
+  --label-glow-before-opacity: 0.7;
+
+  --stardust-color: rgba(167, 139, 250, 0.15);
+
+  --glow-ring-opacity: 0.35;
+  --glow-ring-opacity-hover: 0.7;
+  
+  --footer-text-color: #e2e8f0; /*94a3b8*/
+  --footer-text-diamond: #e2e8f0;
+}
+
+* {
+  font-family: 'Quicksand', system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg-body);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin: 0;
+  transition: background 0.4s;
+}
+
+.citlali-card {
+  position: relative;
+  z-index: 1;
+  background: var(--card-bg);
+  backdrop-filter: var(--card-backdrop-blur);
+  -webkit-backdrop-filter: var(--card-backdrop-blur);
+  border: var(--card-border);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.4s;
+}
+.citlali-card:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.glow-ring {
+  position: relative;
+}
+.glow-ring::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: var(--card-border-radius);
+  padding: 2px;
+  background: var(--glow-ring-gradient);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: var(--glow-ring-opacity);
+  pointer-events: none;
+  transition: opacity 0.5s;
+  z-index: 0;
+}
+.glow-ring:hover::before {
+  opacity: var(--glow-ring-opacity-hover);
+}
+
+.shimmer-text {
+  background: var(--shimmer-gradient);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s ease-in-out infinite alternate;
+}
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.text-main-subtitle {
+  color: var(--text-main-subtitle-color);
+}
+
+.tab-btn {
+  transition: all 0.25s ease;
+  color: var(--tab-color);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+.tab-btn.active {
+  background: var(--tab-active-bg);
+  color: #fff;
+  box-shadow: var(--tab-active-shadow);
+}
+.tab-btn:not(.active):hover {
+  color: var(--tab-hover-color);
+  background: var(--tab-hover-bg);
+}
+
+.toggle-password-btn {
+    color: var(--toggle-color);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.25s ease;
+}
+.toggle-password-btn:hover {
+    color: var(--toggle-hover-color);
+}
+
+.toggle-password-btn svg {
+    fill: currentColor;
+    color: inherit;
+}
+
+.citlali-input {
+  background: var(--input-bg);
+  border: var(--input-border);
+  color: var(--input-color);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.citlali-input:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: var(--input-focus-shadow);
+  outline: none;
+}
+
+.citlali-input::placeholder {
+  color: var(--input-placeholder);
+}
+
+.file-citlali::file-selector-button {
+  background: var(--file-btn-bg);
+  border: var(--file-btn-border);
+  color: var(--file-btn-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin-right: 0.75rem;
+}
+.file-citlali::file-selector-button:hover {
+  background: var(--file-btn-hover-bg);
+  border: var(--file-btn-hover-border);
+}
+
+.btn-primary {
+  background: var(--primary-btn-bg);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--primary-btn-shadow);
+  cursor: pointer;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--primary-btn-shadow-hover);
+}
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--primary-btn-shadow-active);
+}
+
+.status-success {
+  background: var(--status-success-bg);
+  color: var(--status-success-color);
+  border: var(--status-success-border);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.status-error {
+  background: var(--status-error-bg);
+  color: var(--status-error-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.label-glow {
+  color: var(--label-color);
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.label-glow::before {
+  content: '✦';
+  font-size: 0.6rem;
+  color: var(--label-glow-before-color);
+  opacity: var(--label-glow-before-opacity);
+}
+
+.footer-text {
+  color: var(--footer-text-color);
+}
+
+.footer-text span {
+  color: var(--footer-text-diamond); 
+}
+
+.stardust {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.stardust span {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--stardust-color);
+  border-radius: 50%;
+  animation: twinkle var(--d, 6s) ease-in-out infinite alternate;
+}
+@keyframes twinkle {
+  0%   { opacity: 0.05; transform: scale(0.8); }
+  100% { opacity: 0.4;  transform: scale(1.2); }
+}
+
+@media (max-width: 480px) {
+  .citlali-card {
+    padding: 1.25rem !important;
+  }
+}
